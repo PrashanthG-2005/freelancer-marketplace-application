@@ -114,8 +114,8 @@ const AnimatedCounter = ({ target, suffix = '' }) => {
 
   const formatted = target.includes('M') ? (count / 1000).toFixed(1) + 'M' :
     target.includes('K') ? count + 'K' :
-    target.includes('₹500Cr') ? '₹' + (count / 1000).toFixed(0) + 'Cr' :
-    count + '';
+      target.includes('₹500Cr') ? '₹' + (count / 1000).toFixed(0) + 'Cr' :
+        count + '';
   return <span>{formatted}{suffix}</span>;
 };
 
