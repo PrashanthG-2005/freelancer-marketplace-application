@@ -11,19 +11,9 @@ import {
   CurrencyDollarIcon,
   TagIcon,
   DocumentTextIcon,
-  SparklesIcon,
   EyeIcon,
   EyeSlashIcon,
-  CheckBadgeIcon,
-  BoltIcon,
 } from '@heroicons/react/24/outline';
-import { StarIcon } from '@heroicons/react/24/solid';
-
-const PERKS = [
-  { icon: <BoltIcon className="w-4 h-4" />, title: 'Start in 5 minutes', desc: 'Quick onboarding with guided profile setup.' },
-  { icon: <CurrencyDollarIcon className="w-4 h-4" />, title: 'Keep 95% of earnings', desc: 'Industry-leading commission structure.' },
-  { icon: <CheckBadgeIcon className="w-4 h-4" />, title: 'Get a Verified badge', desc: 'Stand out with our verification program.' },
-];
 
 const RegisterFreelancer = () => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '', skills: '', projectRate: '', bio: '' });
@@ -79,61 +69,6 @@ const RegisterFreelancer = () => {
   return (
     <div className="min-h-screen flex">
       <Toaster position="top-right" toastOptions={{ style: { borderRadius: '12px', fontSize: '14px' } }} />
-
-      {/* Left panel */}
-      <div className="hidden lg:flex lg:w-5/12 bg-gradient-to-br from-slate-900 to-blue-950 flex-col justify-between p-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
-        <div className="absolute -top-24 -right-16 w-80 h-80 rounded-full bg-blue-500 opacity-15 blur-3xl" />
-
-        <Link to="/" className="flex items-center gap-2 relative z-10">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center">
-            <SparklesIcon className="w-5 h-5 text-white" />
-          </div>
-          <span className="text-xl font-bold text-white">Freelancer Marketplace</span>
-        </Link>
-
-        <div className="relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-blue-300 text-sm font-semibold mb-5">
-            💼 For Freelancers
-          </div>
-          <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
-            Build Your Dream<br />
-            <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
-              Freelance Career
-            </span>
-          </h2>
-          <p className="text-white/60 text-base leading-relaxed mb-8">
-            Join 50,000+ professionals earning on their own terms. Set your rates, choose your projects, work from anywhere.
-          </p>
-          <div className="space-y-4">
-            {PERKS.map((p, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-blue-400 flex-shrink-0">{p.icon}</div>
-                <div>
-                  <div className="text-white text-sm font-semibold">{p.title}</div>
-                  <div className="text-white/50 text-xs">{p.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="relative z-10 bg-white/5 border border-white/10 rounded-2xl p-5">
-          <div className="flex items-center gap-1 mb-2">
-            {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-3.5 h-3.5 text-amber-400" />)}
-          </div>
-          <p className="text-white/80 text-sm leading-relaxed mb-3">
-            "I landed my first ₹50K project within a week of joining Freelancer Marketplace. The platform's client quality is unmatched."
-          </p>
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-violet-400 flex items-center justify-center text-white text-xs font-bold">AK</div>
-            <div>
-              <div className="text-white text-xs font-semibold">Ananya Kumar</div>
-              <div className="text-blue-300/60 text-xs">Full-Stack Developer · ₹1.2L/month</div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Right: Form */}
       <div className="flex-1 flex items-center justify-center px-4 py-12 bg-gray-50">

@@ -6,7 +6,7 @@ import { getAvatar } from '../lib/constants';
 import {
   CheckCircleIcon, XCircleIcon, ClockIcon, CurrencyDollarIcon,
   BriefcaseIcon, CheckBadgeIcon, MapPinIcon, SparklesIcon,
-  PencilSquareIcon, EyeIcon, ArrowTrendingUpIcon,
+  PencilSquareIcon, ArrowTrendingUpIcon,
   ExclamationCircleIcon,
 } from '@heroicons/react/24/outline';
 import { StarIcon } from '@heroicons/react/24/solid';
@@ -128,9 +128,6 @@ const FreelancerDashboard = () => {
             </p>
           </div>
           <div className="flex items-center gap-3">
-            <button className="btn-secondary text-sm px-4 py-2">
-              <EyeIcon className="w-4 h-4 mr-1.5" />Public Profile
-            </button>
             <Link to="/profile/edit" className="btn-primary text-sm px-4 py-2">
               <PencilSquareIcon className="w-4 h-4 mr-1.5" />Edit Profile
             </Link>
@@ -150,14 +147,14 @@ const FreelancerDashboard = () => {
         )}
 
         {/* Profile banner */}
-        <div className="bg-gradient-to-br from-slate-800 to-blue-900 rounded-3xl p-8 mb-8 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
-          <div className="absolute -top-16 -right-8 w-64 h-64 rounded-full bg-blue-500 opacity-10 blur-3xl pointer-events-none" />
+        <div className="bg-white border border-gray-100 rounded-3xl p-8 mb-8 text-gray-900 relative overflow-hidden shadow-sm">
+          <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none" />
+          <div className="absolute -top-16 -right-8 w-64 h-64 rounded-full bg-blue-500 opacity-5 blur-3xl pointer-events-none" />
 
           <div className="relative flex flex-col lg:flex-row items-start lg:items-center gap-6">
             {/* Avatar + info */}
             <div className="flex items-center gap-5">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-400 to-violet-500 flex items-center justify-center text-3xl font-black shadow-xl overflow-hidden border-2 border-white/20">
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center text-3xl font-black shadow-md overflow-hidden border border-gray-100">
                 <img 
                   src={getAvatar(user?.profilePicture, user?.name)} 
                   alt={user?.name} 
@@ -166,19 +163,19 @@ const FreelancerDashboard = () => {
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <h2 className="text-2xl font-bold">{user?.name}</h2>
-                  <CheckBadgeIcon className="w-6 h-6 text-blue-400" />
+                  <h2 className="text-2xl font-bold text-gray-900">{user?.name}</h2>
+                  <CheckBadgeIcon className="w-6 h-6 text-blue-600" />
                 </div>
-                <div className="flex items-center gap-2 mb-2 text-sm text-white/70">
-                  <StarIcon className="w-4 h-4 text-amber-400" />
-                  <span className="font-semibold text-white">
+                <div className="flex items-center gap-2 mb-2 text-sm text-gray-500">
+                  <StarIcon className="w-4 h-4 text-amber-500" />
+                  <span className="font-semibold text-gray-700">
                     {completedBookings.length > 0 ? '★ Top Rated' : 'New Freelancer'}
                   </span>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-white/60">
+                <div className="flex items-center gap-3 text-xs text-gray-500">
                   <span className="flex items-center gap-1"><MapPinIcon className="w-4 h-4" />Remote</span>
                   <span className="flex items-center gap-1">
-                    <span className={`w-2 h-2 rounded-full ${pendingBookings.length > 0 ? 'bg-amber-400 animate-pulse' : 'bg-emerald-400'}`} />
+                    <span className={`w-2 h-2 rounded-full ${pendingBookings.length > 0 ? 'bg-amber-400 animate-pulse' : 'bg-emerald-500'}`} />
                     {pendingBookings.length > 0 ? `${pendingBookings.length} pending request${pendingBookings.length > 1 ? 's' : ''}` : 'Available for work'}
                   </span>
                 </div>
@@ -188,29 +185,29 @@ const FreelancerDashboard = () => {
             {/* Quick action */}
             <div className="lg:ml-auto flex gap-3">
               <Link to="/profile/edit"
-                className="flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl text-sm font-semibold text-white transition-all">
+                className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-xl text-sm font-semibold text-gray-700 transition-all">
                 <PencilSquareIcon className="w-4 h-4" /> Edit Profile
               </Link>
             </div>
           </div>
 
           {/* Profile completion bar */}
-          <div className="relative mt-6 pt-6 border-t border-white/10">
+          <div className="relative mt-6 pt-6 border-t border-gray-100">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-white/60 flex items-center gap-1.5">
-                <SparklesIcon className="w-4 h-4 text-amber-400" />Profile Strength
+              <span className="text-sm text-gray-500 flex items-center gap-1.5">
+                <SparklesIcon className="w-4 h-4 text-amber-500" />Profile Strength
               </span>
               <div className="flex items-center gap-3">
-                <span className="text-sm font-bold text-white">
+                <span className="text-sm font-bold text-gray-900">
                   {completedBookings.length > 0 ? '100%' : bookings.length > 0 ? '70%' : '40%'}
                 </span>
                 <Link to="/profile/edit"
-                  className="text-xs text-blue-300 hover:text-blue-200 underline font-medium">
-                  Complete Profile →
+                  className="inline-flex items-center gap-1 px-3 py-1 bg-blue-50 hover:bg-blue-100 text-blue-600 hover:text-blue-700 rounded-lg text-xs font-semibold border border-blue-100 hover:border-blue-200 transition-all duration-200 shadow-sm active:scale-95 group">
+                  Complete Profile <span className="inline-block transition-transform duration-200 group-hover:translate-x-0.5">→</span>
                 </Link>
               </div>
             </div>
-            <div className="h-1.5 bg-white/20 rounded-full">
+            <div className="h-1.5 bg-gray-100 rounded-full">
               <div
                 className="h-full bg-gradient-to-r from-emerald-400 to-blue-400 rounded-full transition-all duration-700"
                 style={{ width: completedBookings.length > 0 ? '100%' : bookings.length > 0 ? '70%' : '40%' }}

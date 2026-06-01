@@ -9,18 +9,7 @@ import {
   EnvelopeIcon,
   EyeIcon,
   EyeSlashIcon,
-  SparklesIcon,
-  CheckBadgeIcon,
-  ShieldCheckIcon,
-  CurrencyDollarIcon,
 } from '@heroicons/react/24/outline';
-import { StarIcon } from '@heroicons/react/24/solid';
-
-const FEATURES = [
-  { icon: <CheckBadgeIcon className="w-4 h-4" />, text: 'Verified Professionals Only' },
-  { icon: <ShieldCheckIcon className="w-4 h-4" />, text: 'Secure Escrow Payments' },
-  { icon: <CurrencyDollarIcon className="w-4 h-4" />, text: '95% Earnings Retention' },
-];
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -64,56 +53,6 @@ const Login = () => {
   return (
     <div className="min-h-screen flex">
       <Toaster position="top-right" toastOptions={{ style: { borderRadius: '12px', fontSize: '14px' } }} />
-
-      {/* Left Panel */}
-      <div className="hidden lg:flex lg:w-5/12 bg-gradient-to-br from-slate-900 to-blue-950 flex-col justify-between p-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
-        <div className="absolute -top-24 -right-16 w-80 h-80 rounded-full bg-blue-500 opacity-15 blur-3xl" />
-
-        <Link to="/" className="flex items-center gap-2 relative z-10">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center">
-            <SparklesIcon className="w-5 h-5 text-white" />
-          </div>
-          <span className="text-xl font-bold text-white">Freelancer Marketplace</span>
-        </Link>
-
-        <div className="relative z-10">
-          <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
-            The Future of<br />
-            <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
-              Work is Here
-            </span>
-          </h2>
-          <p className="text-blue-100/70 text-lg leading-relaxed mb-8">
-            Sign in to access your dashboard, manage projects, and connect with top talent worldwide.
-          </p>
-          <div className="space-y-3">
-            {FEATURES.map((f, i) => (
-              <div key={i} className="flex items-center gap-3 text-blue-100/80 text-sm">
-                <span className="text-blue-400">{f.icon}</span>
-                {f.text}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Testimonial */}
-        <div className="relative z-10 bg-white/5 border border-white/10 rounded-2xl p-5">
-          <div className="flex items-center gap-1 mb-2">
-            {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-3.5 h-3.5 text-amber-400" />)}
-          </div>
-          <p className="text-white/80 text-sm leading-relaxed mb-4">
-            "Freelancer Marketplace helped us find a world-class mobile developer in 24 hours. We've been using it for all our projects since."
-          </p>
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-violet-400 flex items-center justify-center text-white text-xs font-bold">RT</div>
-            <div>
-              <div className="text-white text-xs font-semibold">Rajan Thakur</div>
-              <div className="text-blue-300/60 text-xs">CTO, Buildify Labs</div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Right: Form */}
       <div className="flex-1 flex items-center justify-center px-4 py-12 bg-gray-50">

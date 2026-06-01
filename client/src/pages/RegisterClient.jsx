@@ -8,21 +8,12 @@ import {
   BuildingOfficeIcon,
   EnvelopeIcon,
   LockClosedIcon,
-  SparklesIcon,
   EyeIcon,
   EyeSlashIcon,
   CheckBadgeIcon,
   UserGroupIcon,
   RocketLaunchIcon,
-  ShieldCheckIcon,
 } from '@heroicons/react/24/outline';
-import { StarIcon } from '@heroicons/react/24/solid';
-
-const BENEFITS = [
-  { icon: <UserGroupIcon className="w-4 h-4" />, title: 'Access 50K+ Freelancers', desc: 'Filtered and verified professionals across all categories.' },
-  { icon: <ShieldCheckIcon className="w-4 h-4" />, title: 'Hire Risk-Free', desc: 'Milestone payments + money-back guarantee on quality.' },
-  { icon: <RocketLaunchIcon className="w-4 h-4" />, title: 'Start in 24 Hours', desc: 'Smart matching finds your ideal candidate fast.' },
-];
 
 const RegisterClient = () => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '', companyName: '' });
@@ -66,71 +57,6 @@ const RegisterClient = () => {
   return (
     <div className="min-h-screen flex">
       <Toaster position="top-right" toastOptions={{ style: { borderRadius: '12px', fontSize: '14px' } }} />
-
-      {/* Left panel */}
-      <div className="hidden lg:flex lg:w-5/12 bg-gradient-to-br from-slate-900 to-blue-950 flex-col justify-between p-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
-        <div className="absolute -top-24 -right-16 w-80 h-80 rounded-full bg-blue-500 opacity-15 blur-3xl" />
-
-        <Link to="/" className="flex items-center gap-2 relative z-10">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center">
-            <SparklesIcon className="w-5 h-5 text-white" />
-          </div>
-          <span className="text-xl font-bold text-white">Freelancer Marketplace</span>
-        </Link>
-
-        <div className="relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-blue-300 text-sm font-semibold mb-5">
-            🏢 For Clients & Businesses
-          </div>
-          <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
-            Build Your Dream<br />
-            <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
-              Remote Team
-            </span>
-          </h2>
-          <p className="text-white/60 text-base leading-relaxed mb-8">
-            Post your first project for free and receive proposals from top-tier professionals within hours.
-          </p>
-          <div className="space-y-4">
-            {BENEFITS.map((b, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-blue-400 flex-shrink-0">{b.icon}</div>
-                <div>
-                  <div className="text-white text-sm font-semibold">{b.title}</div>
-                  <div className="text-white/50 text-xs">{b.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 mt-8">
-            {[{ n: '24h', l: 'Avg. Time to Hire' }, { n: '98%', l: 'Satisfaction Rate' }, { n: 'Free', l: 'To Post Projects' }].map((s, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
-                <div className="text-xl font-black text-white">{s.n}</div>
-                <div className="text-xs text-white/50">{s.l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="relative z-10 bg-white/5 border border-white/10 rounded-2xl p-5">
-          <div className="flex items-center gap-1 mb-2">
-            {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-3.5 h-3.5 text-amber-400" />)}
-          </div>
-          <p className="text-white/80 text-sm leading-relaxed mb-3">
-            "We scaled our entire engineering team through Freelancer Marketplace. The quality vetting saves us weeks of hiring time."
-          </p>
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-violet-400 flex items-center justify-center text-white text-xs font-bold">NK</div>
-            <div>
-              <div className="text-white text-xs font-semibold">Nikhil Kapoor</div>
-              <div className="text-blue-300/60 text-xs">VP Engineering, FinTechPro</div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Right: Form */}
       <div className="flex-1 flex items-center justify-center px-4 py-12 bg-gray-50">
